@@ -1,0 +1,37 @@
+mathModule.js
+// Define a function to add two numbers
+function add(a, b) {
+  return a + b;
+}
+
+// Export the function
+module.exports = add;
+
+main.js
+// Import the mathModule
+const add = require('./mathModule');
+
+// Use the add function
+const result = add(2, 3);
+console.log(`The result is: ${result}`);
+
+-----------------------------------------------------
+
+mathModule.js
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+module.exports = { add, subtract };
+
+
+main.js
+const math = require('./mathModule');
+console.log(`Addition: ${math.add(5, 3)}`);
+console.log(`Subtraction: ${math.subtract(5, 3)}`);
+
+----------------------------------------------------------
