@@ -1,0 +1,69 @@
+const fs = require('fs');
+const path = require('path');
+
+// Define file paths
+const filePath = path.join(__dirname, 'example.txt');
+const newFilePath = path.join(__dirname, 'newExample.txt');
+
+// Write to a file
+fs.writeFile(filePath, 'Hello, World!', (err) => {
+  if (err) {
+    console.error('Error writing to file:', err);
+  } else {
+    console.log('File written successfully');
+  }
+});
+
+// Read from a file
+fs.readFile(filePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading file:', err);
+  } else {
+    console.log('File contents:', data);
+  }
+});
+
+// Append to a file
+fs.appendFile(filePath, '\nAppended text', (err) => {
+  if (err) {
+    console.error('Error appending to file:', err);
+  } else {
+    console.log('Text appended to file');
+  }
+});
+
+// Copy a file
+fs.copyFile(filePath, newFilePath, (err) => {
+  if (err) {
+    console.error('Error copying file:', err);
+  } else {
+    console.log('File copied successfully');
+  }
+});
+
+// Delete a file
+fs.unlink(newFilePath, (err) => {
+  if (err) {
+    console.error('Error deleting file:', err);
+  } else {
+    console.log('File deleted successfully');
+  }
+});
+
+// Check if a file exists
+fs.access(filePath, fs.constants.F_OK, (err) => {
+  if (err) {
+    console.log('File does not exist');
+  } else {
+    console.log('File exists');
+  }
+});
+
+// Get file stats
+fs.stat(filePath, (err, stats) => {
+  if (err) {
+    console.error('Error getting file stats:', err);
+  } else {
+    console.log('File stats:', stats);
+  }
+});
