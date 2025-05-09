@@ -1,0 +1,37 @@
+const fs = require('fs');
+
+function task1(callback) {
+  setTimeout(() => {
+    console.log('Task 1 completed');
+    callback(null, 'Task 1 result');
+  }, 2000);
+}
+
+function task2(callback) {
+  setTimeout(() => {
+    console.log('Task 2 completed');
+    callback(null, 'Task 2 result');
+  }, 3000);
+}
+
+function task3(callback) {
+  setTimeout(() => {
+    console.log('Task 3 completed');
+    callback(null, 'Task 3 result');
+  }, 1000);
+}
+
+task1((err, result1) => {
+  if (err) console.error(err);
+  else console.log(result1);
+});
+
+task2((err, result2) => {
+  if (err) console.error(err);
+  else console.log(result2);
+});
+
+task3((err, result3) => {
+  if (err) console.error(err);
+  else console.log(result3);
+});
